@@ -13,6 +13,6 @@ import Dashboard from '@/components/Dashboard';
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem;
+  padding: 0 1rem;
 }
 </style>

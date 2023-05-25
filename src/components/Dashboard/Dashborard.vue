@@ -8,11 +8,12 @@ import Select from '@/components/Select';
 import IconBase from '@/components/IconBase';
 import Loader from '@/components/Loader';
 import { Column, Project, Task } from '@/types';
-import { 
-    getColumnsListAsync, 
-    getProjectsListAsync, 
-    getTasksListAsync, 
-    saveDataToLocalStorage } 
+import {
+    getColumnsListAsync,
+    getProjectsListAsync,
+    getTasksListAsync,
+    saveDataToLocalStorage
+}
     from '@/api';
 
 import { useToast } from "vue-toastification";
@@ -115,8 +116,8 @@ const handleEdit = (task: Task) => {
 const handleTaskEdit = (task: Task) => {
     const taskStageList = data.value.find(el => el.code === task.stage)
     taskStageList!.list = taskStageList!.list.map(el => {
-        if(el.id === task.id) {
-            el = {...task}
+        if (el.id === task.id) {
+            el = { ...task }
         }
         return el
     })
@@ -125,23 +126,33 @@ const handleTaskEdit = (task: Task) => {
 </script>
 
 <template>
-    <Loader v-if="isLoading"/>
+    <Loader v-if="isLoading" />
     <div class="dashboard" v-else>
-        
-        <div class="dashboard__header">
-            <h1 class="dashboard__title">Карточки</h1>
-            <div class="dashboard__controls">
-                <div class="dashboard__select">
-                    <span>Проект:</span>
-                    <Select v-model="selectedProjectCode" :options="selectOtions" />
+        <div>
+
+            <div class="dashboard__header">
+                <h1 class="dashboard__title">Карточки</h1>
+                <div class="dashboard__controls">
+                    <div class="dashboard__select">
+                        <span>Проект:</span>
+                        <Select v-model="selectedProjectCode" :options="selectOtions" />
+                    </div>
+                    <Button @click="isAddTaskModalOpened = true">
+                        Добавить карточку
+                    </Button>
+                    <Button @click="saveChanges">
+                        Сохранить изменения
+                    </Button>
                 </div>
-                <Button @click="isAddTaskModalOpened = true">
-                    Добавить карточку
-                </Button>
-                <Button @click="saveChanges">
-                    Сохранить изменения
-                </Button>
             </div>
+
+
+
+            <AddTaskModal v-if="isAddTaskModalOpened" @create-task="handleCreateTask" :projects="projects" :columns="stages"
+                @close="isAddTaskModalOpened = false" />
+            <AddTaskModal v-if="isEditingModalOpened" @create-task="handleTaskEdit" :task="taskToEdit" :projects="projects"
+                :columns="stages" @close="isEditingModalOpened = false" />
+
         </div>
 
         <div class="dashboard__stages">
@@ -179,22 +190,6 @@ const handleTaskEdit = (task: Task) => {
                 </div>
             </div>
         </div>
-
-        <AddTaskModal 
-            v-if="isAddTaskModalOpened" 
-            @create-task="handleCreateTask" 
-            :projects="projects" 
-            :columns="stages"
-            @close="isAddTaskModalOpened = false" 
-        />
-        <AddTaskModal 
-            v-if="isEditingModalOpened"
-            @create-task="handleTaskEdit" 
-            :task="taskToEdit" 
-            :projects="projects" :columns="stages"  
-            @close="isEditingModalOpened = false"
-        />
-
     </div>
 </template>
 

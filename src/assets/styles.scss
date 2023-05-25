@@ -11,6 +11,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+body,html,#app {
+    height: 100%;
+}
+
 body {
     background-color: var(--main-bg-color);
 }

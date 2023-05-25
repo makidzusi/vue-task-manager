@@ -1,5 +1,8 @@
 .dashboard {
-    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
 
     &__title {
         font-weight: 700;
@@ -29,6 +32,13 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            margin-bottom: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     &__column-title {
@@ -61,6 +71,12 @@
         align-items: center;
         justify-content: space-between;
         margin-bottom: 12px;
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
+            margin-bottom: 1rem;
+            align-items: center;
+            justify-content: flex-end;
+        }
     }
 
     &__empty {
@@ -96,6 +112,7 @@
     &__controls {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         gap: 8px;
     }
 
@@ -114,5 +131,7 @@
         align-items: center;
         align-items: flex-start;
         gap: 40px;
+        overflow-x: auto;
+        height: 100%;
     }
 }

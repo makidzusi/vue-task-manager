@@ -14,5 +14,6 @@ import Dashboard from '@/components/Dashboard';
   align-items: center;
   justify-content: center;
   padding: 0 1rem;
+  height: 100%;
 }
 </style>

@@ -116,6 +116,7 @@ const handleEdit = (task: Task) => {
 const handleTaskEdit = (task: Task) => {
     const taskStageList = data.value.find(el => el.code === task.stage)
     taskStageList!.list = taskStageList!.list.map(el => {
+        
         if (el.id === task.id) {
             el = { ...task }
         }

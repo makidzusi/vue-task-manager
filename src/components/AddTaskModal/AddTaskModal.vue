@@ -8,7 +8,7 @@
                 <span class="add-modal__label">Проект:</span>
                 <Select :is-white="true" v-model="taskData.project" :options="projectsOptions" />
             </div>
-            <div>
+            <div v-if="!props.task">
                 <span class="add-modal__label">Стадия*:</span>
                 <Select :is-white="true" v-model="taskData.stage" :options="stageOptions"/>
             </div>

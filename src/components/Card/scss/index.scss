@@ -1,0 +1,37 @@
+.card {
+    background-color: #fff;
+    padding: 12px;
+    height: 120px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__header-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    &__icon {
+        cursor: pointer;
+    }
+    &__icon-drag {
+        cursor: grab;
+    }
+    &__score {
+        margin-top: 8px;
+        display: block;
+        color: var(--light-grey);
+        span {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+    }
+    &__title {
+        margin: 0;
+    }
+}

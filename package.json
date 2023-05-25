@@ -1,0 +1,27 @@
+{
+  "name": "test-task",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@floating-ui/vue": "^1.0.0",
+    "@vueuse/components": "^10.1.2",
+    "normalize.css": "^8.0.1",
+    "sass": "^1.62.1",
+    "vue": "^3.2.47",
+    "vue-toastification": "^2.0.0-rc.5",
+    "vuedraggable": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.3",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vue-tsc": "^1.4.2"
+  }
+}

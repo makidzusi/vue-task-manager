@@ -1,0 +1,16 @@
+:root {
+    --main-bg-color: #F5F5F5;
+    --text-color: #38393D;
+    --light-grey: #71747C;
+    --text-muted: #7D8CA1;
+    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --blue: #7CABE3;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--main-bg-color);
+}

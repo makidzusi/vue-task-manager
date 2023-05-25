@@ -1,0 +1,19 @@
+.button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 8px 20px;
+    height: 32px;
+    color: #fff;
+    background: var(--blue);
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.3s;
+    font-size: 13px;
+    line-height: 16px;
+    &:hover {
+        opacity: 0.8;
+    }
+}

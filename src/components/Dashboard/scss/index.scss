@@ -134,4 +134,8 @@
         overflow-x: auto;
         height: 100%;
     }
+    &__ghost {
+        opacity: 0.5;
+        background: #c8ebfb;
+    }
 }

@@ -116,13 +116,20 @@ const handleEdit = (task: Task) => {
 const handleTaskEdit = (task: Task) => {
     const taskStageList = data.value.find(el => el.code === task.stage)
     taskStageList!.list = taskStageList!.list.map(el => {
-        
+
         if (el.id === task.id) {
             el = { ...task }
         }
         return el
     })
 }
+
+const dragOptions = {
+    animation: 200,
+    group: "tasks",
+    disabled: false,
+    ghostClass: "dashboard__ghost"
+};
 
 </script>
 
@@ -178,8 +185,8 @@ const handleTaskEdit = (task: Task) => {
                         </draggable>
                     </div>
                     <template v-else>
-                        <draggable class="dashboard__column-items" @end="handleEnd" group="tasks" v-model="stage.list"
-                            item-key="id">
+                        <draggable class="dashboard__column-items" @end="handleEnd" v-model="stage.list" item-key="id"
+                            v-bind="dragOptions">
                             <template #item="{ element }">
                                 <Card @edit="handleEdit" :projects="projects" v-if="isCardVisible(element)"
                                     @remove="handleRemove($event, stage)" :card="element" />
